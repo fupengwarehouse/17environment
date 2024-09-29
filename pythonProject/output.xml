@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.12.5 on win32)" generated="2024-08-27T16:37:24.345717" rpa="false" schemaversion="5">
+<suite id="s1" name="pythonProject" source="C:\Users\fupeng\Desktop\pythoncase\pythonProject">
+<suite id="s1-s1" name="测试用例层" source="C:\Users\fupeng\Desktop\pythoncase\pythonProject\测试用例层">
+<suite id="s1-s1-s1" name="Zhinengmoxing" source="C:\Users\fupeng\Desktop\pythoncase\pythonProject\测试用例层\zhinengmoxing.robot">
+<test id="s1-s1-s1-t1" name="新增智能模型-post" line="12">
+<kw name="Login token" owner="公共配置">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-08-27T16:37:24.662238" level="INFO">&amp;{header} = { content-type=application/json }</msg>
+<var>&amp;{header}</var>
+<arg>content-type=${content-type}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-08-27T16:37:24.662238" elapsed="0.000000"/>
+</kw>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2024-08-27T16:37:24.662238" level="INFO">Creating Session using : alias=nmb, url=http://192.167.0.17:5020, headers={'content-type': 'application/json'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>nmb</arg>
+<arg>http://192.167.0.17:5020</arg>
+<arg>headers=&amp;{header}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2024-08-27T16:37:24.662238" elapsed="0.000000"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-08-27T16:37:24.662238" level="INFO">&amp;{data} = { account=admin_iif | password=QWRtaW5fMTIz }</msg>
+<var>&amp;{data}</var>
+<arg>account=${username}</arg>
+<arg>password=${password}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-08-27T16:37:24.662238" elapsed="0.000000"/>
+</kw>
+<kw name="Post Request" owner="RequestsLibrary">
+<msg time="2024-08-27T16:37:24.662238" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg time="2024-08-27T16:37:24.678803" level="INFO">POST Request : url=http://192.167.0.17:5020/api/sys-manage/user/login 
+ path_url=/api/sys-manage/user/login 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'content-type': 'application/json', 'Content-Length': '52'} 
+ body={"account": "admin_iif", "password": "QWRtaW5fMTIz"} 
+ </msg>
+<msg time="2024-08-27T16:37:24.678803" level="INFO">POST Response : url=http://192.167.0.17:5020/api/sys-manage/user/login 
+ status=200, reason=OK 
+ headers={'Server': 'nginx/1.13.8', 'Date': 'Tue, 27 Aug 2024 08:37:46 GMT', 'Content-Type': 'application/json', 'Content-Length': '682', 'Connection': 'keep-alive', 'Cache-Control': 'no-cache, no-store, must-revalidate', 'Pragma': 'no-cache'} 
+ body={"code":0,"message":"success","result":{"userName":"\u8d85\u7ea7\u7ba1\u7406\u5458","account":"admin_iif","deptName":null,"accessToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcyNDc0Nzg2NiwianRpIjoiZGMxMTcyM2YtZTMxMi00ZTYxLWE1YTQtMTgwNmZjZjliMzJkIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzI0NzQ3ODY2LCJleHAiOjE3MjQ3NTUwNjZ9.9zjpLNJJbaMhJV0eNkU-Oc6n5FTM2AQ-nkqJ5hZ0RQc","refreshToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcyNDc0Nzg2NiwianRpIjoiZmNjZGMyNmItNWZmZS00MWIyLWFlMWYtYWQ3ZWE4YTJlZGYyIiwidHlwZSI6InJlZnJlc2giLCJzdWIiOjEsIm5iZiI6MTcyNDc0Nzg2NiwiZXhwIjoxNzI3MzM5ODY2fQ.tW2nraMSMPViWqqTkJvPVwqFzu2VSY_iCCkM62jiAr0"}} 
+ </msg>
+<msg time="2024-08-27T16:37:24.678803" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<var>${resp}</var>
+<arg>nmb</arg>
+<arg>${loginurl}</arg>
+<arg>data=&amp;{data}</arg>
+<doc>*DEPRECATED* Please use `POST On Session` instead.</doc>
+<status status="PASS" start="2024-08-27T16:37:24.662238" elapsed="0.016565"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-08-27T16:37:24.678803" level="INFO">${dict} = {'code': 0, 'message': 'success', 'result': {'userName': '超级管理员', 'account': 'admin_iif', 'deptName': None, 'accessToken': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcyNDc0Nzg...</msg>
+<var>${dict}</var>
+<arg>${resp.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-08-27T16:37:24.678803" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2024-08-27T16:37:24.678803" level="INFO">${result} = {'userName': '超级管理员', 'account': 'admin_iif', 'deptName': None, 'accessToken': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcyNDc0Nzg2NiwianRpIjoiZGMxMTcyM2YtZTMxMi00ZTYxLWE1YTQ...</msg>
+<var>${result}</var>
+<arg>${dict}</arg>
+<arg>result</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2024-08-27T16:37:24.678803" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-08-27T16:37:24.678803" level="INFO">${result} = {'userName': '超级管理员', 'account': 'admin_iif', 'deptName': None, 'accessToken': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcyNDc0Nzg2NiwianRpIjoiZGMxMTcyM2YtZTMxMi00ZTYxLWE1YTQ...</msg>
+<var>${result}</var>
+<arg>dict(${result})</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-08-27T16:37:24.678803" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2024-08-27T16:37:24.678803" level="INFO">${accessToken} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcyNDc0Nzg2NiwianRpIjoiZGMxMTcyM2YtZTMxMi00ZTYxLWE1YTQtMTgwNmZjZjliMzJkIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzI0NzQ3ODY2LCJleHA...</msg>
+<var>${accessToken}</var>
+<arg>${result}</arg>
+<arg>accessToken</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2024-08-27T16:37:24.678803" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2024-08-27T16:37:24.678803" level="INFO">${refreshToken} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcyNDc0Nzg2NiwianRpIjoiZmNjZGMyNmItNWZmZS00MWIyLWFlMWYtYWQ3ZWE4YTJlZGYyIiwidHlwZSI6InJlZnJlc2giLCJzdWIiOjEsIm5iZiI6MTcyNDc0Nzg2NiwiZXh...</msg>
+<var>${refreshToken}</var>
+<arg>${result}</arg>
+<arg>refreshToken</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2024-08-27T16:37:24.678803" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-08-27T16:37:24.678803" level="INFO">${token} = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcyNDc0Nzg2NiwianRpIjoiZGMxMTcyM2YtZTMxMi00ZTYxLWE1YTQtMTgwNmZjZjliMzJkIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzI0NzQ3ODY2...</msg>
+<var>${token}</var>
+<arg>Bearer ${accessToken}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-08-27T16:37:24.678803" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2024-08-27T16:37:24.678803" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-27T16:37:24.678803" elapsed="0.000000"/>
+</kw>
+<return>
+<value>${token}</value>
+<status status="PASS" start="2024-08-27T16:37:24.678803" elapsed="0.000000"/>
+</return>
+<msg time="2024-08-27T16:37:24.678803" level="INFO">${token} = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcyNDc0Nzg2NiwianRpIjoiZGMxMTcyM2YtZTMxMi00ZTYxLWE1YTQtMTgwNmZjZjliMzJkIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzI0NzQ3ODY2...</msg>
+<var>${token}</var>
+<status status="PASS" start="2024-08-27T16:37:24.662238" elapsed="0.016565"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-08-27T16:37:24.678803" level="INFO">${header} = {'content-type': 'application/json', 'authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcyNDc0Nzg2NiwianRpIjoiZGMxMTcyM2YtZTMxMi00ZTYxLWE1YTQtMTgwNmZjZjliMzJkI...</msg>
+<var>${header}</var>
+<arg>content-type=${content-type}</arg>
+<arg>authorization=${token}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-08-27T16:37:24.678803" elapsed="0.000000"/>
+</kw>
+<kw name="Load Json From File" owner="JSONLibrary">
+<msg time="2024-08-27T16:37:24.678803" level="ERROR">JSON file: ../测试数据层/rucan.json not found</msg>
+<msg time="2024-08-27T16:37:24.678803" level="FAIL">OSError</msg>
+<var>${json_data}</var>
+<arg>../测试数据层/rucan.json</arg>
+<doc>Load JSON from file.</doc>
+<status status="FAIL" start="2024-08-27T16:37:24.678803" elapsed="0.000000">OSError</status>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<var>${data}</var>
+<arg>${json_data}</arg>
+<arg>ZNMXadd</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="NOT RUN" start="2024-08-27T16:37:24.678803" elapsed="0.000000"/>
+</kw>
+<kw name="Generate Random String" owner="String">
+<var>${random_value}</var>
+<arg>5</arg>
+<arg>[MUNBER]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<status status="NOT RUN" start="2024-08-27T16:37:24.678803" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${name}</var>
+<arg>FPtest${random_value}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2024-08-27T16:37:24.678803" elapsed="0.000000"/>
+</kw>
+<kw name="Set To Dictionary" owner="Collections">
+<var>${data}</var>
+<arg>${data}</arg>
+<arg>name</arg>
+<arg>${name}</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="NOT RUN" start="2024-08-27T16:37:24.678803" elapsed="0.000000"/>
+</kw>
+<kw name="methodpost test" owner="commonmethod">
+<var>${resp}</var>
+<arg>${seriesdataurl}</arg>
+<arg>${data}</arg>
+<arg>${header}</arg>
+<status status="NOT RUN" start="2024-08-27T16:37:24.678803" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>${resp.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-08-27T16:37:24.678803" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${dict}</var>
+<arg>${resp.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2024-08-27T16:37:24.678803" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<var>${code}</var>
+<arg>${dict}</arg>
+<arg>code</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="NOT RUN" start="2024-08-27T16:37:24.678803" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<var>${result}</var>
+<arg>${dict}</arg>
+<arg>result</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="NOT RUN" start="2024-08-27T16:37:24.678803" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<var>${addname}</var>
+<arg>${result}</arg>
+<arg>name</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="NOT RUN" start="2024-08-27T16:37:24.678803" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<arg>${code}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="NOT RUN" start="2024-08-27T16:37:24.678803" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="NOT RUN" start="2024-08-27T16:37:24.678803" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${addname}</arg>
+<arg>${name}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="NOT RUN" start="2024-08-27T16:37:24.678803" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2024-08-27T16:37:24.662238" elapsed="0.016565">OSError</status>
+</test>
+<status status="FAIL" start="2024-08-27T16:37:24.378926" elapsed="0.299877"/>
+</suite>
+<status status="FAIL" start="2024-08-27T16:37:24.378926" elapsed="0.316587"/>
+</suite>
+<status status="FAIL" start="2024-08-27T16:37:24.345717" elapsed="0.349796"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="pythonProject">pythonProject</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1" name="测试用例层">pythonProject.测试用例层</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1-s1" name="Zhinengmoxing">pythonProject.测试用例层.Zhinengmoxing</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2024-08-27T16:37:24.345424" level="WARN">Error in file 'C:\Users\fupeng\Desktop\pythoncase\pythonProject\测试业务层\commonmethod.robot' on line 29: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2024-08-27T16:37:24.345717" level="WARN">Error in file 'C:\Users\fupeng\Desktop\pythoncase\pythonProject\测试业务层\commonmethod.robot' on line 38: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2024-08-27T16:37:24.345717" level="ERROR">Error in file 'C:\Users\fupeng\Desktop\pythoncase\pythonProject\测试用例层\test.robot' on line 4: Non-existing setting 'Library RequestsLibrary'.</msg>
+<msg time="2024-08-27T16:37:24.378926" level="WARN">Error in file 'C:\Users\fupeng\Desktop\pythoncase\pythonProject\测试业务层\commonmethod.robot' on line 29: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2024-08-27T16:37:24.378926" level="WARN">Error in file 'C:\Users\fupeng\Desktop\pythoncase\pythonProject\测试业务层\commonmethod.robot' on line 38: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2024-08-27T16:37:24.595310" level="WARN">Error in file 'C:\Users\fupeng\Desktop\pythoncase\pythonProject\配置\公共配置.resource' on line 31: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2024-08-27T16:37:24.595310" level="ERROR">Error in file 'C:\Users\fupeng\Desktop\pythoncase\pythonProject\测试用例层\zhinengmoxing.robot' on line 4: Parsing JSON resource file 'C:\Users\fupeng\Desktop\pythoncase\pythonProject\测试数据层\rucan.json' failed: Creating 'robot.running.ResourceFile' object from dictionary failed: 'robot.running.ResourceFile' object does not have attribute 'login'</msg>
+<msg time="2024-08-27T16:37:24.662238" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg time="2024-08-27T16:37:24.678803" level="ERROR">JSON file: ../测试数据层/rucan.json not found</msg>
+</errors>
+</robot>

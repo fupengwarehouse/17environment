@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>战娃利润中心指标自动化测试报告</title>
+</head>
+<body>
+    <div style="width:100%;float:left">
+                    <table cellspacing="0" cellpadding="4" border="1" align="left">
+                        <thead>
+                            <tr bgcolor="#F3F3F3">
+                                <td style="text-align:center" colspan="9"><b>战娃利润中心日报自动检测</b></td>
+                            </tr>
+                           <!-- <tr>
+                                <td bgcolor="#F3F3F3" style="width:80px"><b>详细报告:</b></td>
+                                <td colspan="8">
+                                  <a href="${rooturl}${build.url}robot/report/report.html">点击查看报告详情</a>
+                                </td>
+                            </tr>-->
+                            <tr>
+                                <td bgcolor="#F3F3F3" style="width:100px"><b>指标预测规则:</b></td>
+                                <td colspan="8">
+                                 <a href="https://docs.qq.com/sheet/DT1ZBZHdGdXJkVWFL">点击查看指标预测规则</a>
+                                </td>
+                            </tr>
+                            <!--这里定义的是用例的统计信息-->
+                            <tr bgcolor="#F3F3F3">
+                                <td><b>用例总数</b></td>
+                                <td><b>通过</b></td>
+                                <td style="width:60px"><b>不通过</b></td>
+                                <td colspan="6"><b>通过率</b></td>
+                            </tr>
+                            <!--通过2.3的渲染获取的数据，在这里进行取值填充-->
+                            <tr>
+                                <td>{{data['total']}}</td>
+                                <td><b><span style="color:#66CC00">{{data['pass']}}</span></b></td>
+                                <td><b><span style="color:#FF3333">{{data['fail']}}</span></b></td>
+                                <td colspan="6">{{data['percent']}}</td>
+                            </tr>
+                            <!-- 这里定义的是用例的表头信息-->
+                            <tr bgcolor="#F3F3F3">
+                                <td colspan="2"><b>Test Name</b></td>
+                                <td><b>执行结果</b></td>
+                                <td><b>预测上限</b></td>
+                                 <td><b>预测下限</b></td>
+                                 <td><b>预测值</b></td>
+                                 <td><b>实际值</b></td>
+                                <td><b>差值(预测-实际)</b></td>
+                                <td><b>差值百分比</b></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <!--通过2.3的渲染获取的数据data2，也就是用例信息数据，在这里进行取值填充，由于涉及多个suite，
+                        每个suite下有多条case，这里通过两层循环取每条case的相关信息 -->
+                        {% for data in data2 %}
+                         <tr>
+                                <td colspan="9"><b>{{data['suitename']}}</b></td>
+                            </tr>
+
+                        <tr>
+                             {% for c2 in data['test'] %}
+                                <td colspan="2">{{c2['casename']}}</td>
+                                {% if c2['status']=='PASS' %}
+                                    <td><b><span style="color:#66CC00">{{c2['status']}}</span></b></td>
+                                    {% else %}
+                                    <td><b><span style="color:#FF3333" >{{c2['status']}}</span></b></td>
+                                {% endif %}
+                                <td>{{c2['max']}}</td>
+                             <td>{{c2['min']}}</td>
+                             {% if c2['casename']=='01 GMV' %}
+                                    <td>{{c2['yhat']}}</td>
+                                    {% else %}
+                                    <td>--</td>
+                            {% endif %}
+                             <td>{{c2['real']}}</td>
+                             {% if c2['casename']=='01 GMV' %}
+                                    <td>{{c2['reduce']}}</td>
+                                    {% else %}
+                                    <td>--</td>
+                            {% endif %}
+                            {% if c2['casename']=='01 GMV' %}
+                                    <td>{{c2['percent']}}</td>
+                                    {% else %}
+                                    <td>--</td>
+                            {% endif %}
+                            </tr>
+                        {% endfor %}
+                        {% endfor %}
+                        </tbody>
+                    </table>
+</body>
+</html>

@@ -1,0 +1,68 @@
+{
+  "login": {
+    "account":"1",
+    "password":"2"
+  },
+  "seriesdata": {
+    "featureKeys":["454544111"],
+    "startAt":1724389621,
+    "endAt":1724393221,
+    "tsDbId":1,
+    "interval":1,
+    "currentDB":"factory",
+    "expression":"",
+    "allowNull":false
+  },
+  "featuresvalue": {
+    "featureKeyList":["cdbm8374","cdbm8373","cdbm8372","cdbm8371","cdbm8370"]
+  },
+  "featuresincrementingvalue": {
+    "featureKeyList":["cdbm8403"]
+  },
+  "ZNMXadd": {
+    "currentDB":"factory",
+    "appID":376,
+    "categoryID":"",
+    "systemID":1,
+    "componentID":1,
+    "name":"12q4321",
+    "description":"",
+    "callInterval":1,
+    "callMethod":1,
+    "operatingModeID":"",
+    "operatingModeName":"",
+    "usageID":121
+  },
+  "MXJSlist": {
+    "appId":1,
+    "pageNum":1,
+    "pageSize":9,
+    "search":"FPtest",
+    "modelTypes":[]
+  },
+  "ZNMXupdate": {
+    "currentDB":"factory",
+    "appID":376,
+    "systemID":1,
+    "componentID":1,
+    "name":"FPtestM[ENR",
+    "description":"",
+    "callInterval":1,
+    "callMethod":1,
+    "operatingModeID":null,
+    "operatingModeName":null,
+    "usageID":121,
+    "id":10647
+  },
+  "ZNMXdelete": {
+    "currentDB":"factory",
+    "systemID":1,
+    "appID":376,
+    "ids":[10651]
+  },
+  "ZNMXpublish": {
+    "currentDB":"factory",
+    "id":10594,
+    "isPublish":true
+  }
+}
